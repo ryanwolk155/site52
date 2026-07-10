@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LETICIA ARRUDA DE SOUZA LTDA</title>
+  <meta name="og:title" content="LETICIA ARRUDA DE SOUZA LTDA" />
+  <meta name="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="LETICIA ARRUDA DE SOUZA LTDA" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #17171f;
+      --primary-soft: #262636;
+      --accent: #d4a24c;
+      --accent-dim: #9c7a3a;
+      --light-bg: #f7f5f1;
+      --white: #ffffff;
+      --text: #201f26;
+      --muted: #676372;
+      --border: #e6e2d9;
+      --footer-bg: #0e0e14;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 60px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-brand .logo-initial {
+      background: var(--accent);
+      color: var(--primary);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links .btn-nav {
+      background: var(--accent);
+      color: var(--primary);
+      padding: 0.35rem 0.9rem;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+    .nav-links .btn-nav:hover { color: var(--primary); opacity: 0.9; }
+
+    /* HERO */
+    #home {
+      background: radial-gradient(circle at 20% 20%, var(--primary-soft) 0%, var(--primary) 60%);
+      color: var(--white);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    #home h1 {
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+    #home p {
+      max-width: 680px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.8);
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--primary);
+      padding: 0.7rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent-dim); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 0.7rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+
+    /* SECTIONS */
+    section { padding: 4rem 2rem; }
+    .container { max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      line-height: 1.25;
+    }
+    p { color: var(--muted); margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* SOBRE */
+    #sobre { background: var(--light-bg); }
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      margin-top: 2rem;
+    }
+    @media (max-width: 640px) { .sobre-grid { grid-template-columns: 1fr; } }
+    .sobre-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .sobre-box h3 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-dim);
+      margin-bottom: 0.6rem;
+      font-weight: 700;
+    }
+    .sobre-box p { font-size: 0.95rem; }
+
+    /* SERVIÇOS */
+    #servicos { background: var(--white); }
+    .services-list {
+      list-style: none;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .services-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      font-size: 0.97rem;
+      color: var(--text);
+    }
+    .services-list li::before {
+      content: "🎬";
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* DADOS */
+    #dados { background: var(--light-bg); }
+    .dados-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .dados-table tr { border-bottom: 1px solid var(--border); }
+    .dados-table tr:last-child { border-bottom: none; }
+    .dados-table td {
+      padding: 0.85rem 1.1rem;
+      font-size: 0.93rem;
+    }
+    .dados-table td:first-child {
+      font-weight: 700;
+      color: var(--primary);
+      width: 38%;
+      background: #efeae0;
+    }
+    .dados-table td:last-child { color: var(--text); }
+
+    /* SÓCIOS */
+    #socios { background: var(--white); }
+    .socio-card {
+      margin-top: 2rem;
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .socio-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .socio-card h3 { font-size: 1rem; color: var(--primary); margin-bottom: 0.2rem; }
+    .socio-card p { font-size: 0.9rem; margin-bottom: 0; }
+
+    /* MISSÃO */
+    #missao { background: var(--primary); color: var(--white); }
+    #missao h2 { color: var(--white); }
+    #missao p { color: rgba(255,255,255,0.78); }
+    .missao-highlight {
+      margin-top: 2rem;
+      background: rgba(255,255,255,0.06);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 1.2rem 1.4rem;
+      font-size: 0.97rem;
+      color: rgba(255,255,255,0.88);
+    }
+
+    /* CONTATO */
+    #contato-section { background: var(--light-bg); }
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 800px) { .contato-grid { grid-template-columns: 1fr; } }
+    .contato-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem;
+    }
+    .contato-card h3 { font-size: 1rem; color: var(--primary); margin-bottom: 0.5rem; }
+    .contato-card p { font-size: 0.93rem; }
+    .contato-card a { color: var(--accent-dim); text-decoration: none; }
+
+    /* FOOTER */
+    footer {
+      background: var(--footer-bg);
+      color: rgba(255,255,255,0.55);
+      padding: 2rem;
+      font-size: 0.82rem;
+      text-align: center;
+      line-height: 1.8;
+    }
+    footer strong { color: rgba(255,255,255,0.85); }
+    .footer-links {
+      margin-top: 0.8rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.8rem;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.85); }
+    .back-top {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--accent);
+      color: var(--primary);
+      padding: 0.35rem 0.8rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      background: var(--white);
+      border-radius: 10px;
+      max-width: 660px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 2rem;
+      position: relative;
+    }
+    .modal-box h2 { font-size: 1.2rem; margin-bottom: 1rem; }
+    .modal-box h3 { font-size: 0.95rem; color: var(--accent-dim); margin: 1.2rem 0 0.4rem; }
+    .modal-box p, .modal-box li { font-size: 0.88rem; color: var(--muted); }
+    .modal-box ul { padding-left: 1.2rem; }
+    .modal-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: none; border: none;
+      font-size: 1.3rem; cursor: pointer; color: var(--muted);
+    }
+
+    /* MOBILE NAV */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      nav { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="home">
+  <a class="nav-brand" href="#home">
+    <span class="logo-initial">L</span>
+    LETICIA ARRUDA DE SOUZA LTDA
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#dados">Dados oficiais</a></li>
+    <li><a href="https://wa.me/5571996485137?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." class="btn-nav" target="_blank" rel="noopener">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero-section">
+  <div id="home" style="padding:5rem 2rem 4rem; background:radial-gradient(circle at 20% 20%, #262636 0%, #17171f 60%); color:#fff; text-align:center;">
+    <h1>LETICIA ARRUDA DE SOUZA LTDA</h1>
+    <p>Somos uma produtora especializada em conteúdo audiovisual, publicidade e imagem, dedicada a transformar ideias em produções de qualidade para clientes em São Paulo/SP e região.</p>
+    <p style="color:rgba(255,255,255,0.8); max-width:680px; margin:0 auto 2rem;">Nosso compromisso é oferecer criatividade, rigor técnico e um processo transparente do roteiro à entrega final.</p>
+    <div class="hero-btns">
+      <a href="#servicos" class="btn-primary">Ver serviços</a>
+      <a href="https://wa.me/5571996485137?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." class="btn-secondary" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container">
+    <div class="section-label">QUEM SOMOS?</div>
+    <h2>Quem somos</h2>
+    <p>A <strong>LETICIA ARRUDA DE SOUZA LTDA</strong>, registrada sob o CNPJ 67.874.530/0001-30 e com início de atividades em 06/07/2026, está localizada em São Paulo/SP.</p>
+    <p>A empresa atua no segmento de produção audiovisual. Conforme seu cadastro público, é uma empresa constituída como Sociedade Empresária Limitada, enquadrada como Microempresa (ME).</p>
+    <div class="sobre-grid">
+      <div class="sobre-box">
+        <h3>Nossa atuação</h3>
+        <p>Trabalhamos com produção cinematográfica, de vídeos e de programas de televisão, além de atuar como agência de publicidade, laboratório fotográfico e distribuição de conteúdo audiovisual. Buscamos unir criatividade, técnica e proximidade com o cliente em cada entrega.</p>
+      </div>
+      <div class="sobre-box">
+        <h3>Endereço cadastral</h3>
+        <p>Alameda Br de Piracicaba, 210 — Apt 1307<br>Campos Elíseos<br>São Paulo – SP, CEP 01216-011</p>
+        <p style="margin-top:0.8rem;">Na Leticia Arruda de Souza LTDA, valorizamos relações transparentes, comunicação clara e compromisso com a qualidade de cada produção.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="container">
+    <div class="section-label">O QUE FAZEMOS</div>
+    <h2>Nossos serviços</h2>
+    <ul class="services-list">
+      <li>Produção cinematográfica, de vídeos e de programas de televisão</li>
+      <li>Agenciamento e criação publicitária</li>
+      <li>Serviços de laboratório fotográfico</li>
+      <li>Distribuição cinematográfica, de vídeo e de programas de televisão</li>
+      <li>Atendimento personalizado, presencial e por WhatsApp</li>
+      <li>Processos criativos e técnicos estruturados e transparentes</li>
+    </ul>
+  </div>
+</section>
+
+<!-- DADOS OFICIAIS -->
+<section id="dados">
+  <div class="container">
+    <div class="section-label">REGISTRO PÚBLICO</div>
+    <h2>Dados oficiais</h2>
+    <table class="dados-table">
+      <tr style="background:#efeae0;"><td style="font-size:1.02rem;">Razão Social</td><td style="font-weight:700; font-size:1.02rem;">Leticia Arruda de Souza LTDA</td></tr>
+      <tr><td>CNPJ</td><td>67.874.530/0001-30</td></tr>
+      <tr><td>Data de Abertura</td><td>06/07/2026</td></tr>
+      <tr><td>Porte</td><td>Microempresa (ME)</td></tr>
+      <tr><td>Natureza Jurídica</td><td>Sociedade Empresária Limitada</td></tr>
+      <tr><td>Opção pelo MEI</td><td>Não</td></tr>
+      <tr><td>Capital Social</td><td>R$ 7.500,00</td></tr>
+      <tr><td>Tipo</td><td>Matriz</td></tr>
+      <tr><td>Situação Cadastral</td><td>Ativa</td></tr>
+      <tr><td>Data da Situação</td><td>06/07/2026</td></tr>
+      <tr><td>Atividade Principal (CNAE)</td><td>59.11-1-99 — Atividades de produção cinematográfica, de vídeos e de programas de televisão não especificadas anteriormente</td></tr>
+      <tr><td>Atividades Secundárias (CNAE)</td><td>73.11-4-00 — Agências de publicidade<br>74.20-0-03 — Laboratórios fotográficos<br>59.13-8-00 — Distribuição cinematográfica, de vídeo e de programas de televisão</td></tr>
+      <tr><td>Endereço</td><td>Alameda Br de Piracicaba, 210, Apt 1307 — Campos Elíseos, São Paulo – SP, CEP 01216-011</td></tr>
+      <tr><td>Telefone</td><td>(71) 99648-5137</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- SÓCIOS -->
+<section id="socios">
+  <div class="container">
+    <div class="section-label">QUADRO SOCIETÁRIO</div>
+    <h2>Sócios e administradores</h2>
+    <div class="socio-card">
+      <div class="socio-avatar">L</div>
+      <div>
+        <h3>Leticia Arruda de Souza</h3>
+        <p>Sócia-Administradora — Qualificação do responsável pela empresa: Sócio-Administrador</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSÃO -->
+<section id="missao">
+  <div class="container">
+    <div class="section-label" style="color:rgba(255,255,255,0.55);">NOSSA MISSÃO</div>
+    <h2>Nossa missão</h2>
+    <p>A missão da Leticia Arruda de Souza LTDA é produzir conteúdo audiovisual e publicitário com criatividade e qualidade técnica, entregando soluções confiáveis para clientes de São Paulo/SP e região.</p>
+    <div class="missao-highlight">
+      Nosso compromisso é transformar criatividade, dedicação e proximidade no atendimento em produções que atendam às expectativas dos nossos clientes, sempre com foco em qualidade, transparência e crescimento sustentável.
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato-section">
+  <div class="container">
+    <div class="section-label">FALE CONOSCO</div>
+    <h2>Contato</h2>
+    <div class="contato-grid">
+      <div class="contato-card">
+        <h3>📧 Telefone</h3>
+        <p><a href="tel:+5571996485137">(71) 99648-5137</a></p>
+      </div>
+      <div class="contato-card">
+        <h3>💬 WhatsApp</h3>
+        <p><a href="https://wa.me/5571996485137?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">Chamar no WhatsApp →</a></p>
+      </div>
+      <div class="contato-card">
+        <h3>✉️ E-mail</h3>
+        <p><a href="mailto:contato@leticiaarrudadesouzaltda.com.br">contato@leticiaarrudadesouzaltda.com.br</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>LETICIA ARRUDA DE SOUZA LTDA</strong><br>
+  CNPJ: 67.874.530/0001-30 | Data de Abertura: 06/07/2026 | Porte: Microempresa (ME) | Natureza Jurídica: Sociedade Empresária Limitada | Situação Cadastral: ATIVA | Tipo: MATRIZ | Capital Social: R$ 7.500,00 | Endereço: Alameda Br de Piracicaba, 210, Apt 1307, Campos Elíseos, São Paulo – SP, CEP 01216-011 | E-mail: contato@leticiaarrudadesouzaltda.com.br<br><br>
+  ©️ 2026 Leticia Arruda de Souza LTDA. Todos os direitos reservados.
+  <div class="footer-links">
+    <a href="#" id="privacy-link">Política de Privacidade</a>
+    <a href="#home" class="back-top">Voltar ao topo ↑</a>
+  </div>
+</footer>
+
+<!-- MODAL PRIVACIDADE -->
+<div class="modal-overlay" id="privacy-modal">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close-btn">✕</button>
+    <h2>Política de Privacidade</h2>
+    <p><strong>LETICIA ARRUDA DE SOUZA LTDA</strong><br>
+    CNPJ: 67.874.530/0001-30<br>
+    Endereço: Alameda Br de Piracicaba, 210, Apt 1307, Campos Elíseos, São Paulo – SP, CEP 01216-011</p>
+
+    <h3>1. Finalidade</h3>
+    <p>Esta Política de Privacidade descreve como a Leticia Arruda de Souza LTDA coleta, utiliza, armazena e protege dados pessoais de clientes, parceiros, fornecedores e usuários que interagem conosco por meio de nossos canais de comunicação ou durante a contratação de nossos serviços.</p>
+
+    <h3>2. Dados Coletados</h3>
+    <p>Coletamos apenas os dados necessários para as finalidades descritas nesta política, incluindo:</p>
+    <ul>
+      <li>Nome, e-mail, telefone, dados profissionais e informações empresariais (CPF ou CNPJ), quando necessário;</li>
+      <li>Registros de comunicação, pedidos, propostas e histórico de atendimento;</li>
+      <li>Dados de navegação (quando aplicável), conforme políticas das plataformas utilizadas.</li>
+    </ul>
+
+    <h3>3. Uso dos Dados</h3>
+    <p>Os dados pessoais coletados são utilizados para:</p>
+    <ul>
+      <li>Prestação e gestão dos serviços audiovisuais e publicitários;</li>
+      <li>Comunicação operacional, administrativa e comercial;</li>
+      <li>Cumprimento de obrigações legais e regulatórias;</li>
+      <li>Melhoria contínua dos serviços e processos internos.</li>
+    </ul>
+
+    <h3>4. Compartilhamento de Dados</h3>
+    <p>Não comercializamos dados pessoais. O compartilhamento ocorre apenas com parceiros essenciais à execução dos serviços, mediante confidencialidade, ou quando exigido por lei, ordem judicial ou autoridade competente.</p>
+
+    <h3>5. Direitos do Titular (LGPD)</h3>
+    <p>Nos termos da LGPD (Lei nº 13.709/2018), o titular pode solicitar confirmação de tratamento, acesso, correção, anonimização, bloqueio, eliminação, portabilidade e revogação de consentimentos.</p>
+
+    <h3>6. Armazenamento e Segurança</h3>
+    <p>Adotamos medidas técnicas e administrativas adequadas para proteger os dados pessoais contra acessos não autorizados, perdas ou divulgações indevidas.</p>
+
+    <h3>7. Contato</h3>
+    <p>📞 Telefone: (71) 99648-5137<br>✉️ E-mail: contato@leticiaarrudadesouzaltda.com.br</p>
+
+    <p style="margin-top:1.2rem; font-size:0.8rem;">LETICIA ARRUDA DE SOUZA LTDA — CNPJ 67.874.530/0001-30 — ©️ 2026. Todos os direitos reservados.</p>
+  </div>
+</div>
+
+<script>
+  const privacyLink = document.getElementById('privacy-link');
+  const privacyModal = document.getElementById('privacy-modal');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+
+  privacyLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    privacyModal.classList.add('active');
+  });
+  modalCloseBtn.addEventListener('click', () => {
+    privacyModal.classList.remove('active');
+  });
+  privacyModal.addEventListener('click', (e) => {
+    if (e.target === privacyModal) privacyModal.classList.remove('active');
+  });
+</script>
+
+</body>
+</html>
